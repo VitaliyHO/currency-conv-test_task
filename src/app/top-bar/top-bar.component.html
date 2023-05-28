@@ -1,0 +1,8 @@
+<header class="flex border-b-4">
+    <p class="mr-10 font-bold">FinMAX</p>
+    <p *ngIf="loading">Loading...</p>
+    <ul *ngIf="successfulLoading" class="flex">
+        <li class="mr-10">USD/UAH - 1/{{ USD }}</li>
+        <li>EUR/UAH - 1/{{ EUR }}</li>
+    </ul>
+</header>
