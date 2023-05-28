@@ -14,9 +14,13 @@ export class CurrenciesService {
 
     getUSD(): Observable<any> {
         return this.http.get(`https://v6.exchangerate-api.com/v6/${this.API_KEY}/latest/USD`)
-    }
+    };
 
     getEUR(): Observable<any> {
         return this.http.get(`https://v6.exchangerate-api.com/v6/${this.API_KEY}/latest/EUR`)
+    };
+
+    getCurrency(name: string): Observable<any> {
+        return this.http.get(`https://v6.exchangerate-api.com/v6/${this.API_KEY}/latest/${name}`)
     }
 }

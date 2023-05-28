@@ -1,23 +1,33 @@
 <h2 class="text-center">Converter</h2>
 <div class="flex justify-center">
   <div class="mr-20">
-    <select class="ml-auto mr-auto">
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-      <option value="PLN">PLN</option>
-      <option value="GBP">GBP</option>
-      <option value="UAH">UAH</option>
+    <select (change)="firstCurrency($any($event.target).value)">
+      [(ngModel)]="firstCurName">
+      <option *ngFor="let currency of currencies" [value]="currency.name">
+        {{ currency.name }}
+      </option>
     </select>
-    <input type="number" placeholder="0.0" class="border-b border-black block" />
+    <input
+      (input)="onFirstInput($any($event.target).value)"
+      type="number"
+      value="{{firstCurNumber | number}}"
+      placeholder="1"
+      class="border-b border-black block"
+    />
   </div>
   <div>
-    <select>
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-      <option value="PLN">PLN</option>
-      <option value="GBP">GBP</option>
-      <option value="UAH">UAH</option>
+    <select (change)="secondCurrency($any($event.target).value)">
+      [(ngModel)]="secondCurName">
+      <option *ngFor="let currency of currencies" [value]="currency.name">
+        {{ currency.name }}
+      </option>
     </select>
-    <input type="number" placeholder="0.0" class="border-b border-black block" />
+    <input
+      (input)="onSecondInput($any($event.target).value)"
+      type="number"
+      value="{{secondCurNumber | number}}"
+      placeholder="1"
+      class="border-b border-black block"
+    />
   </div>
 </div>
